@@ -87,7 +87,7 @@ public class TestTaskThree extends AbstractTest {
     @Test
     public void testSecondConstructorCallsNoArgConstructor (@Mocked Job job) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         new Expectations() {{
-            new Job(); minTimes = 1; maxTimes = 1;
+            new Job("Web Developer", new Employer("LaunchCode"), new Location("St. Louis"), new PositionType("Front-end developer"), new CoreCompetency("JavaScript")); minTimes = 1; maxTimes = 1;
         }};
         createJob("Name",
                 "Employer",
