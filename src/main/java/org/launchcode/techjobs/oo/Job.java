@@ -16,9 +16,18 @@ public class Job {
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
-    public Job(String webDeveloper, Employer launchCode, Location location, PositionType positionType, CoreCompetency javaScript) {
-        id = nextId;
-        nextId++;
+
+
+    public Job(int id) {
+        this.id = id;
+    }
+
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
+        this.name = name;
+        this.employer = employer;
+        this.location = location;
+        this.positionType = positionType;
+        this.coreCompetency = coreCompetency;
     }
 
     public Job(int id, String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
@@ -87,5 +96,11 @@ public class Job {
 
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
+    }
+
+    // TODO 3) Complete the Job Class #4. Generate a getter for the id field
+
+    public int getId() {
+        return id;
     }
 }
