@@ -82,7 +82,7 @@ public class JobTest {
         System.out.println(jobSix);
     }
     @Test
-    public void testToStringContainsCorrectLabelsandData(){
+    public void testToStringContainsCorrectLabelsAndData(){
         Job jobSeven =
                 new Job("Product Tester",
                 new Employer("ACME"),
@@ -95,5 +95,19 @@ public class JobTest {
         assertTrue(jobSeven.toString().contains("Location: Desert"));
         assertTrue(jobSeven.toString().contains("Position Type: Quality control"));
         assertTrue(jobSeven.toString().contains("Core Competency: Persistence"));
+    }
+    @Test
+    public void testToStringHandlesEmptyField(){
+        Job jobEight = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+        String testForDataNotAvailableTest =
+                "ID: " + jobEight.getId() +
+                "\nName: " + "Data not available" +
+                "\nEmployer: " + "Data not available" +
+                "\nLocation: " + "Data not available" +
+                "\nPosition Type: " + "Data not available" +
+                "\nCore Competency: " + "Data not available";
+//        System.out.println(testForDataNotAvailableTest);
+//        System.out.println(jobEight);
+        assertTrue(jobEight.toString().contains(testForDataNotAvailableTest));
     }
 }

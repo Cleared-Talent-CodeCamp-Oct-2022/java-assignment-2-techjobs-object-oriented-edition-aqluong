@@ -113,6 +113,7 @@ public class Job {
         String noData = "Data not available";
 // 3. If a field is empty, the method should add, “Data not available” after the label.
 // 4. (Bonus) If a Job object ONLY contains data for the id field, the method should return, “OOPS! This job does not seem to exist.”
+    // testing empty field should print out "Data not available"
         if (name == null && employer == null && location == null && positionType ==  null && coreCompetency == null) {
             return "OOPS! This job does not seem to exist.";
         } else {
