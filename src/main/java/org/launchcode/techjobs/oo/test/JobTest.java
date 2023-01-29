@@ -41,4 +41,27 @@ public class JobTest {
         assertEquals("Persistence", jobThree.getCoreCompetency().getValue());
         assertTrue(jobThree instanceof Job);
     }
+    @Test
+    public void testJobsForEquality() {
+        Job jobFour = new Job("Product tester",
+                new Employer("ACME"),
+                new Location("Desert"),
+                new PositionType("Quality control"),
+                new CoreCompetency("Persistence"));
+
+        Job jobFive = new Job("Product tester",
+                new Employer("ACME"),
+                new Location("Desert"),
+                new PositionType("Quality control"),
+                new CoreCompetency("Persistence"));
+
+        System.out.println("#" + jobFour.getId() + " is the ID for jobFour");
+        // jobFour ID: 1
+        System.out.println("#" + jobFive.getId() + " is the ID for jobFive");
+        // jobFive ID: 2
+//        assertEquals(jobFour, jobFive);
+
+//It might seem logical to follow up the false case by testing to make sure that equals returns true when two objects have the same ID.
+//However, the positive test is irrelevant in this case.
+    }
 }
