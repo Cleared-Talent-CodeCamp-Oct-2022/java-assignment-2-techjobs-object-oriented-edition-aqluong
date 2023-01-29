@@ -80,6 +80,20 @@ public class JobTest {
         assertTrue(jobSix.toString().startsWith("\n"));
         assertTrue(jobSix.toString().endsWith("\n"));
         System.out.println(jobSix);
-
+    }
+    @Test
+    public void testToStringContainsCorrectLabelsandData(){
+        Job jobSeven =
+                new Job("Product Tester",
+                new Employer("ACME"),
+                new Location("Desert"),
+                new PositionType("Quality control"),
+                new CoreCompetency("Persistence"));
+        assertTrue(jobSeven.toString().contains("ID: 1"));
+        assertTrue(jobSeven.toString().contains("Name: Product Tester"));
+        assertTrue(jobSeven.toString().contains("Employer: ACME"));
+        assertTrue(jobSeven.toString().contains("Location: Desert"));
+        assertTrue(jobSeven.toString().contains("Position Type: Quality control"));
+        assertTrue(jobSeven.toString().contains("Core Competency: Persistence"));
     }
 }
