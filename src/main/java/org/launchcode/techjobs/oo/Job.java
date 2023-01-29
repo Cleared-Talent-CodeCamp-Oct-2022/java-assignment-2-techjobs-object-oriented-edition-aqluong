@@ -14,15 +14,20 @@ public class Job {
     private CoreCompetency coreCompetency;
 
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
+
+    // Removed int id from line 24 to leave constructor empty taking no parameter from 3) Complete the Job Class #1
+    // Change Line 25 from this.id = (id) to this.id = (nextId) like other classes
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
 
 
-    public Job(int id) {
-        this.id = id;
+    public Job() {
+        this.id = (nextId);
+        nextId++;
     }
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
+        this();
         this.name = name;
         this.employer = employer;
         this.location = location;
@@ -30,14 +35,6 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-    public Job(int id, String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
-        this("Web Developer", new Employer("LaunchCode"), new Location("St. Louis"), new PositionType("Front-end developer"), new CoreCompetency("JavaScript"));
-        this.name = name;
-        this.employer = employer;
-        this.location = location;
-        this.positionType = positionType;
-        this.coreCompetency = coreCompetency;
-    }
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
