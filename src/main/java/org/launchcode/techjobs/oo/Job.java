@@ -46,7 +46,7 @@ public class Job {
         return id == job.id;
     }
 
-    @Override
+//    @Override
     public int hashCode() {
         return Objects.hash(id);
     }
@@ -100,4 +100,32 @@ public class Job {
     public int getId() {
         return id;
     }
+
+    // Create First Test for toString
+//    ID:  _______
+//    Name: _______
+//    Employer: _______
+//    Location: _______
+//    Position Type: _______
+//    Core Competency: _______
+@Override
+    public String toString() {
+        String noData = "Data not available";
+// 3. If a field is empty, the method should add, “Data not available” after the label.
+// 4. (Bonus) If a Job object ONLY contains data for the id field, the method should return, “OOPS! This job does not seem to exist.”
+        if (name == null && employer == null && location == null && positionType ==  null && coreCompetency == null) {
+            return "OOPS! This job does not seem to exist.";
+        } else {
+            return "\n" +
+                    "ID: " + id +
+                    "\nName: " + (name == null || name.equals("") ? noData : name) +
+                    "\nEmployer: " + (employer == null || employer.getValue() == null || employer.getValue().equals("") ? noData : employer.getValue()) +
+                    "\nLocation: " + (location == null || location.getValue() == null || location.getValue().equals("") ? noData : location.getValue()) +
+                    "\nPosition Type: " + (positionType == null || positionType.getValue() == null || positionType.getValue().equals("") ? noData: positionType.getValue()) +
+                    //Position Type had to change to getValue???
+                    "\nCore Competency: " + (coreCompetency == null || coreCompetency.getValue() == null || coreCompetency.getValue().equals("") ? noData : coreCompetency.getValue()) +
+                    "\n";
+        }
+    }
 }
+
