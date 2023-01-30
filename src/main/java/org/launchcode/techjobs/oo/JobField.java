@@ -13,6 +13,7 @@ public abstract class JobField {
     }
 // Constructor
     public JobField(String value) {
+        this();
         this.value = value;
     }
 
@@ -39,5 +40,9 @@ public abstract class JobField {
     public void setValue(String value) {
         this.value = value;
     }
-
+    // Forgot toString just return the value which is the toString in Job
+    @Override
+    public String toString() {
+        return value;
+    }
 }
