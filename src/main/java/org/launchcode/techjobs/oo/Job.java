@@ -46,7 +46,7 @@ public class Job {
         return id == job.id;
     }
 
-//    @Override
+    //    @Override
     public int hashCode() {
         return Objects.hash(id);
     }
@@ -108,25 +108,46 @@ public class Job {
 //    Location: _______
 //    Position Type: _______
 //    Core Competency: _______
-@Override
+//    @Override
+//// 3. If a field is empty, the method should add, “Data not available” after the label.
+//// 4. (Bonus) If a Job object ONLY contains data for the id field, the method should return, “OOPS! This job does not seem to exist.”
+//        // testing empty field should print out "Data not available"
+
+    @Override
     public String toString() {
-        String noData = "Data not available";
-// 3. If a field is empty, the method should add, “Data not available” after the label.
-// 4. (Bonus) If a Job object ONLY contains data for the id field, the method should return, “OOPS! This job does not seem to exist.”
-    // testing empty field should print out "Data not available"
-        if (name == null && employer == null && location == null && positionType ==  null && coreCompetency == null) {
+        if (getName() == ""
+                && getEmployer().getValue().equals("")
+                && getLocation().getValue().equals("")
+                && getPositionType().getValue().equals("")
+                && getCoreCompetency().getValue().equals("")
+        ) {
             return "OOPS! This job does not seem to exist.";
-        } else {
-            return "\n" +
-                    "ID: " + id +
-                    "\nName: " + (name == null || name.equals("") ? noData : name) +
-                    "\nEmployer: " + (employer == null || employer.getValue() == null || employer.getValue().equals("") ? noData : employer.getValue()) +
-                    "\nLocation: " + (location == null || location.getValue() == null || location.getValue().equals("") ? noData : location.getValue()) +
-                    "\nPosition Type: " + (positionType == null || positionType.getValue() == null || positionType.getValue().equals("") ? noData: positionType.getValue()) +
-                    //Position Type had to change to getValue???
-                    "\nCore Competency: " + (coreCompetency == null || coreCompetency.getValue() == null || coreCompetency.getValue().equals("") ? noData : coreCompetency.getValue()) +
-                    "\n";
         }
+        if (getName() == "") {
+            this.name = "Data not available";
+        }
+        if (getEmployer().getValue().equals("")) {
+            this.employer = new Employer("Data not available");
+        }
+        if (getLocation().getValue().equals("")) {
+            this.location = new Location("Data not available");
+        }
+        if (getPositionType().getValue().equals("")) {
+            this.positionType = new PositionType("Data not available");
+        }
+        if (getCoreCompetency().getValue().equals("")) {
+            this.coreCompetency = new CoreCompetency("Data not available");
+        }
+        return "\n" +
+                "ID: " + getId() +
+                "\nName: " + getName() +
+                "\nEmployer: " + getEmployer() +
+                "\nLocation: " + getLocation() +
+                "\nPosition Type: " + getPositionType() +
+                "\nCore Competency: " + getCoreCompetency() +
+                "\n";
     }
 }
+
+
 

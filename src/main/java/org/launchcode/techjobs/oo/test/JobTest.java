@@ -47,13 +47,13 @@ public class JobTest {
     @Test
     public void testJobsForEquality() {
         Job jobFour =
-                        new Job("Product tester",
+                new Job("Product tester",
                         new Employer("ACME"),
                         new Location("Desert"),
                         new PositionType("Quality control"),
                         new CoreCompetency("Persistence"));
         Job jobFive =
-                        new Job("Product tester",
+                new Job("Product tester",
                         new Employer("ACME"),
                         new Location("Desert"),
                         new PositionType("Quality control"),
@@ -72,23 +72,28 @@ public class JobTest {
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
         Job jobSix =
-                        new Job("Product Tester",
+                new Job("Product Tester",
                         new Employer("ACME"),
                         new Location("Desert"),
                         new PositionType("Quality control"),
                         new CoreCompetency("Persistence"));
         assertTrue(jobSix.toString().startsWith("\n"));
         assertTrue(jobSix.toString().endsWith("\n"));
-        System.out.println(jobSix);
+        System.out.println(jobSix.toString());
+//        assertTrue(Job.toString(jobSix).startsWith("\n"));
+//        assertTrue(Job.toString(jobSix).endsWith("\n"));
+//        System.out.println(Job.toString(jobSix));
     }
+
     @Test
-    public void testToStringContainsCorrectLabelsAndData(){
+    public void testToStringContainsCorrectLabelsAndData() {
         Job jobSeven =
                 new Job("Product Tester",
-                new Employer("ACME"),
-                new Location("Desert"),
-                new PositionType("Quality control"),
-                new CoreCompetency("Persistence"));
+                        new Employer("ACME"),
+                        new Location("Desert"),
+                        new PositionType("Quality control"),
+                        new CoreCompetency("Persistence"));
+        System.out.println(jobSeven);
         assertTrue(jobSeven.toString().contains("ID: 1"));
         assertTrue(jobSeven.toString().contains("Name: Product Tester"));
         assertTrue(jobSeven.toString().contains("Employer: ACME"));
@@ -96,18 +101,22 @@ public class JobTest {
         assertTrue(jobSeven.toString().contains("Position Type: Quality control"));
         assertTrue(jobSeven.toString().contains("Core Competency: Persistence"));
     }
+
     @Test
-    public void testToStringHandlesEmptyField(){
-        Job jobEight = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
-        String testForDataNotAvailableTest =
-                "ID: " + jobEight.getId() +
-                "\nName: " + "Data not available" +
-                "\nEmployer: " + "Data not available" +
-                "\nLocation: " + "Data not available" +
-                "\nPosition Type: " + "Data not available" +
-                "\nCore Competency: " + "Data not available";
-//        System.out.println(testForDataNotAvailableTest);
-//        System.out.println(jobEight);
-        assertTrue(jobEight.toString().contains(testForDataNotAvailableTest));
+    public void testToStringHandlesEmptyField() {
+        Job jobEight = new Job("", new Employer("ACME"), new Location(""), new PositionType(""), new CoreCompetency(""));
+        System.out.println(jobEight);
+        assertTrue(jobEight.toString().contains("Data not available"));
+    }
+
+    @Test
+    public void testToStringHandlesEmptyFieldOopsBonus() {
+        Job jobNine = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+        System.out.println(jobNine);
+        assertTrue(jobNine.toString().contains("OOPS! This job does not seem to exist"));
+
     }
 }
+
+
+
