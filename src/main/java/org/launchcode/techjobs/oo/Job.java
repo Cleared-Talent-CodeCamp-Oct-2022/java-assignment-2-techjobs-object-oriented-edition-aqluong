@@ -22,7 +22,7 @@ public class Job {
 
 
     public Job() {
-        this.id = (nextId);
+        id = nextId;
         nextId++;
     }
 
