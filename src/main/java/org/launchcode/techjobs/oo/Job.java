@@ -115,11 +115,11 @@ public class Job {
 
     @Override
     public String toString() {
-        if (getName().equals("")
-                && getEmployer().getValue().equals("")
-                && getLocation().getValue().equals("")
-                && getPositionType().getValue().equals("")
-                && getCoreCompetency().getValue().equals("")
+        if (getName().isEmpty()
+                && getEmployer().getValue().isEmpty()
+                && getLocation().getValue().isEmpty()
+                && getPositionType().getValue().isEmpty()
+                && getCoreCompetency().getValue().isEmpty()
         ) {
             return "OOPS! This job does not seem to exist.";
         }
@@ -138,16 +138,16 @@ public class Job {
                 this.name = "Data not available";
             }
             if (getEmployer().getValue().equals("")) {
-                this.employer = new Employer("Data not available");
+                this.employer.setValue("Data not available");
             }
             if (getLocation().getValue().equals("")) {
-                this.location = new Location("Data not available");
+                this.location.setValue("Data not available");
             }
             if (getPositionType().getValue().equals("")) {
-                this.positionType = new PositionType(("Data not available"));
+                this.positionType.setValue("Data not available");
             }
             if (getCoreCompetency().getValue().equals("")) {
-                this.coreCompetency = new CoreCompetency("Data not available");
+                this.coreCompetency.setValue("Data not available");
             }
 
             return "\n" +
