@@ -115,7 +115,7 @@ public class Job {
 
     @Override
     public String toString() {
-        if (getName() == ""
+        if (getName().equals("")
                 && getEmployer().getValue().equals("")
                 && getLocation().getValue().equals("")
                 && getPositionType().getValue().equals("")
@@ -134,7 +134,7 @@ public class Job {
             // Due to AutoGrade TestTaskFive had to seperate all them to have "Data not available"
 
 
-            if (getName() == "") {
+            if (getName().equals("")) {
                 this.name = "Data not available";
             }
             if (getEmployer().getValue().equals("")) {
