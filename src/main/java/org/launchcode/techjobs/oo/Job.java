@@ -46,7 +46,7 @@ public class Job {
         return id == job.id;
     }
 
-    //    @Override
+    @Override
     public int hashCode() {
         return Objects.hash(id);
     }
