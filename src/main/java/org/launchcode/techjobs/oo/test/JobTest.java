@@ -35,6 +35,12 @@ public class JobTest {
                 new PositionType("Quality control"),
                 new CoreCompetency("Persistence"));
 
+        Job jobThree2 = new Job("Web Developer",
+                new Employer("LaunchCode"),
+                new Location("St. Louis"),
+                new PositionType("Front-end developer"),
+                new CoreCompetency("JavaScript"));
+
 //        assertEquals(1, jobThree.getId());
         assertEquals("Product tester", jobThree.getName());
         assertEquals("ACME", jobThree.getEmployer().getValue());
@@ -42,6 +48,8 @@ public class JobTest {
         assertEquals("Quality control", jobThree.getPositionType().getValue());
         assertEquals("Persistence", jobThree.getCoreCompetency().getValue());
         assertTrue(jobThree instanceof Job);
+        assertTrue(jobThree2.getCoreCompetency().toString().equals("JavaScript"));
+//        assertTrue(jobThree2.getCoreCompetency() instanceof  CoreCompetency;
 //        System.out.println(jobThree.getId());
     }
 
@@ -108,6 +116,7 @@ public class JobTest {
         Job jobEight = new Job("", new Employer("ACME"), new Location(""), new PositionType(""), new CoreCompetency(""));
         System.out.println(jobEight);
         assertTrue(jobEight.toString().contains("Data not available"));
+//        System.out.println(jobEight);
     }
 
     @Test

@@ -123,23 +123,43 @@ public class Job {
         ) {
             return "OOPS! This job does not seem to exist.";
         }
-        if ((getName() == ("")) ||
-                (getEmployer().getValue().equals("")) ||
-                (getLocation().getValue().equals("")) ||
-                (getPositionType().getValue().equals("")) ||
-                (getCoreCompetency().getValue().equals(""))) {
-            return  "Data not available";
+//        if ((getName() == ("")) ||
+//                (getEmployer().getValue().equals("")) ||
+//                (getLocation().getValue().equals("")) ||
+//                (getPositionType().getValue().equals("")) ||
+//                (getCoreCompetency().getValue().equals(""))) {
+//            return  "Data not available";
+//        }
+
+            // Due to AutoGrade TestTaskFive had to seperate all them to have "Data not available"
+
+
+            if (getName() == "") {
+                this.name = "Data not available";
+            }
+            if (getEmployer().getValue().equals("")) {
+                this.employer = new Employer("Data not available");
+            }
+            if (getLocation().getValue().equals("")) {
+                this.location = new Location("Data not available");
+            }
+            if (getPositionType().getValue().equals("")) {
+                this.positionType = new PositionType(("Data not available"));
+            }
+            if (getCoreCompetency().getValue().equals("")) {
+                this.coreCompetency = new CoreCompetency("Data not available");
+            }
+
+            return "\n" +
+                    "ID: " + getId() +
+                    "\nName: " + getName() +
+                    "\nEmployer: " + getEmployer() +
+                    "\nLocation: " + getLocation() +
+                    "\nPosition Type: " + getPositionType() +
+                    "\nCore Competency: " + getCoreCompetency() +
+                    "\n";
         }
-        return "\n" +
-                "ID: " + getId() +
-                "\nName: " + getName() +
-                "\nEmployer: " + getEmployer() +
-                "\nLocation: " + getLocation() +
-                "\nPosition Type: " + getPositionType() +
-                "\nCore Competency: " + getCoreCompetency() +
-                "\n";
     }
-}
 
 
 
